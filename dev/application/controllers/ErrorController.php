@@ -1,7 +1,11 @@
 <?php
 
-class ErrorController extends Zend_Controller_Action
+class ErrorController extends Application_Controller_Action
 {
+    public function init()
+    {
+
+    }
 
     public function errorAction()
     {

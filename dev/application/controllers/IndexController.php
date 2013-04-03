@@ -1,16 +1,18 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Application_Controller_Action
 {
 
     public function init()
     {
-        /* Initialize action controller here */
+        parent::init();
     }
 
     public function indexAction()
     {
-        // action body
+        $ApplicationModelPostMapper = new Application_Model_PostsMapper();
+        $this->view->featuredStoryList = $ApplicationModelPostMapper->fetchFeaturedStory();
+        $this->view->newsList = $ApplicationModelPostMapper->fetchNews();
     }
 }
 

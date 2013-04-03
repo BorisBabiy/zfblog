@@ -1,43 +1,113 @@
-<style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
-    }
-
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
-
-    div#welcome
-    {
-        color: #FFFFFF;
-        background-image: url(http://framework.zend.com/images/bkg_header.jpg);
-        width:  600px;
-        height: 400px;
-        border: 2px solid #444444;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    div#more-information
-    {
-        background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
-        height: 100%;
-    }
-</style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
-
-    <h3>This is your project's main page</h3>
-
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
-</div>
+        <tr id="slider-wrapper">
+            <td>
+                <!-- slider -->
+                <div id="slider">
+                    <ol class="carousel-indicators" class="carousel slide">
+                        <li data-target="#slider" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider" data-slide-to="1" class=""></li>
+                        <li data-target="#slider" data-slide-to="2" class=""></li>
+                        <li data-target="#slider" data-slide-to="3" class=""></li>
+                        <li data-target="#slider" data-slide-to="4" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="/template/common/img/slide-1.png" width="938" heigth="340" alt="Slide 1" /></div>
+                        <div class="item"><img src="/template/common/img/slide-2.png" width="938" heigth="340" alt="Slide 2" /></div>
+                        <div class="item"><img src="/template/common/img/slide-3.png" width="938" heigth="340" alt="Slide 3" /></div>
+                        <div class="item"><img src="/template/common/img/slide-4.png" width="938" heigth="340" alt="Slide 4" /></div>
+                        <div class="item"><img src="/template/common/img/slide-5.png" width="938" heigth="340" alt="Slide 5" /></div>
+                    </div>
+                </div>
+                <div id="slider-shadow"></div>
+                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
+            </td>
+        </tr>
+        <tr id="featured-stories-wrapper">
+            <td>
+                <!-- featured stories -->
+                <div class="break-line"></div>
+                <div class="row-fluid featured-article-list">
+                <?php $i = 1; ?>
+                <?php foreach($this->featuredStoryList as $story): ?>
+                    <div class="span4">
+                        <h2 class="featured-article-title"><?php echo $story->title; ?></h2>
+                        <p class="short-description"><?php echo substr($story->content, 0, 30); ?></p>
+                        <div class="image-frame"><img class="featured-image" src="/template/common/img/news-image-<?php echo $i++; ?>.png" alt="<?php echo $story->title; ?>" /></div>
+                        <p class="description"><?php echo substr($story->content, 0, 300); ?></p>
+                        <a class="more gray-box" href="#">Learn More</a>
+                    </div>
+                    <?php $i = ($i > 3) ? 1 : $i; ?>
+                <?php endforeach; ?>
+                </div>
+            </td>
+        </tr>
+        <tr id="social-contact-news-wrapper">
+            <td>
+                <!-- social, contact, news -->
+                 <div class="break-line"></div>
+                 <div class="row-fluid social-contact-news-block">
+                    <div class="span4">
+                        <h3>Social Connection</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                        <ul id="social-list">
+                            <li>
+                                <a href="/feed">
+                                    <img src="/template/common/img/rss.png" alt="rss" width="57" height="57" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://facebook.com/">
+                                    <img src="/template/common/img/facebook.png" alt="facebook" width="57" height="57" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://linkedin.com/">
+                                    <img src="/template/common/img/linkedin.png" alt="LinkedIn" width="57" height="57" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://youtube.com/">
+                                    <img src="/template/common/img/youtube.png" alt="YouTube" width="57" height="57" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/">
+                                    <img src="/template/common/img/twitter.png" alt="Twitter" width="57" height="57" />
+                                </a>
+                            </li>
+                        </ul>
+                        <h3 class="newsletter">Newsletter</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                        <form action="#subscribe" method="post" id="subscribe-form">
+                            <input type="email" name="email" placeholder="your email address" />
+                        </form>
+                        <a class="blue-box" href="#">Subscribe</a>
+                    </div>
+                    <div class="span4">
+                        <h3>Contact</h3>
+                        <form action="#contact" method="post" id="contact-us-form">
+                            <ul>
+                                <li><input type="text" name="name" placeholder="your name" /></li>
+                                <li><input type="email" name="email" placeholder="your email address" /></li>
+                                <li><textarea name="message" placeholder="message"></textarea></li>
+                                <li></li>
+                            </ul>
+                        </form>
+                        <a class="blue-box" href="#">Send it</a>
+                    </div>
+                    <div class="span4">
+                        <h3>News Updates</h3>
+                        <ul id="news-list">
+                            <?php $i = 1; ?>
+                            <?php foreach($this->newsList as $news): ?>
+                            <li>
+                                <div class="image-frame-small"><img src="/template/common/img/news-small-image-<?php echo $i++; ?>.png" alt="<?php echo $news->title; ?>" width="48" height="48"/></div>
+                                <p><?php echo substr($news->content, 0, 100); ?></p>
+                            </li>
+                            <?php $i = ($i > 3) ? 1 : $i; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                        <a class="blue-box" href="#">Visit our Blog</a>
+                    </div>
+                 </div>
+            </td>
+        </tr>
